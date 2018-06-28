@@ -1,0 +1,10 @@
+import turtle
+screen_show = turtle.Screen()
+screen_show.title("Draw a circle")
+exp_1 = turtle.Turtle()
+exp_1.color("green","yellow")
+exp_1.begin_fill()
+exp_1.circle(100)
+exp_1.speed(0)
+exp_1.end_fill()
+screen_show.mainloop()
