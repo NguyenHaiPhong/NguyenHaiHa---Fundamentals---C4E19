@@ -1,5 +1,5 @@
 import turtle
-so_canh = int(input(print("Nhap so canh da giac bao trum ngoai cung: ")))
+so_canh = int(input("Nhap so canh da giac bao trum ngoai cung: "))
 a = int(3)
 screen_show = turtle.Screen()
 screen_show.title("Turtle Exercises 1")
