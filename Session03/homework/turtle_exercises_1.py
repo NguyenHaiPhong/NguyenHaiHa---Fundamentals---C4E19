@@ -21,21 +21,21 @@
 import turtle
 screen_show = turtle.Screen()
 screen_show.title("Turtle Exercises")
-exp_1 = turtle.Turtle()
-exp_1.speed(-1)
+drawing_pen = turtle.Turtle()
+drawing_pen.speed(-1)
 length = int(50)
 list_color = ["red", "blue", "brown", "yellow", "grey"]
 for index in list_color:
-    exp_1.color(index, index)
-    exp_1.begin_fill()
-    exp_1.pendown()
+    drawing_pen.color(index, index)
+    drawing_pen.begin_fill()
+    drawing_pen.pendown()
     for j in range(2):
-        exp_1.forward(50)
-        exp_1.left(90)
-        exp_1.forward(100)
-        exp_1.left(90)       
-    exp_1.end_fill()
-    exp_1.penup()
-    exp_1.forward(length)
+        drawing_pen.forward(50)
+        drawing_pen.left(90)
+        drawing_pen.forward(100)
+        drawing_pen.left(90)       
+    drawing_pen.end_fill()
+    drawing_pen.penup()
+    drawing_pen.forward(length)
 screen_show.mainloop()
 

@@ -15,6 +15,7 @@ while loop:
     elif action == "C" or action == "c":
         new_item = input("Enter new item: ")
         list_items.append(new_item)
+        list_length = list_length + 1
         print("Our items:", end = " ") 
         print(*list_items, sep =", ")
     elif action == "U" or action == "u":
@@ -35,6 +36,7 @@ while loop:
                 print("Your chosen position is incorrect. Please re-enter.")
             else:
                 delete_item = list_items.pop(delete_position - 1)
+                list_length = list_length - 1
                 print("Our items:", end = " ") 
                 print(*list_items, sep =", ")
                 break

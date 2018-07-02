@@ -1,0 +1,11 @@
+1.
+Q: How to check a variable’s type?
+A: Use "type()" function
+2. 
+Q: In what cases, you will get SyntaxError from the compiler telling you that some of your variables have 
+invalid names? Can you give 3 different examples of invalid names?
+A: 
+-Name started with special charaters like: @, $, %.
+-Name that used keywords in python: "and", "break", "class", ...
+-Name that used special words: "None", "True", "Fasle",...
+-Examples: Noneofus, @swag, break_your_legs.
