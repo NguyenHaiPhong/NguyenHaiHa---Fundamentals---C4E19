@@ -4,6 +4,6 @@
 #     product = product * i
 # print("The product from 1 to n =",product)
 from math import factorial
-number = int(input(print("Enter a number: n = ")))
+number = int(input("Enter a number: n = "))
 product = factorial(number)
-print("The product from 1 to n =",product)
+print("The product from 1 to {0} = {1}".format(number, product))
