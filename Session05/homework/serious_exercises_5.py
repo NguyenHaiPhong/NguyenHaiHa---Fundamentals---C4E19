@@ -28,3 +28,8 @@ while checking:
         checking = False
     else:
         print("We don't have that kind of action. Please re-enter.")
+
+total = 0
+for kind_of_fruit in prices:
+    total = total + (prices[kind_of_fruit] * stock[kind_of_fruit])
+print("Total: $", total)
