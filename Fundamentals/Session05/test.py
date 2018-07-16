@@ -48,9 +48,9 @@
 #         print(a)
 #         print("prices: ", prices[a])
 
-a_list = [1, 2, 3, 4, 5]
-for index, value in enumerate(a_list):
-    print(index, value)
+# a_list = [1, 2, 3, 4, 5]
+# for index, value in enumerate(a_list):
+#     print(index, value)
 
 # boxes = [
 #     {"x": 1, "y": 1},
@@ -60,3 +60,9 @@ for index, value in enumerate(a_list):
 
 # print(boxes[1])
 # print(type(boxes[1]))
+
+from datetime import datetime, time
+a = datetime.now().hour
+if a == 7:
+    print
+
