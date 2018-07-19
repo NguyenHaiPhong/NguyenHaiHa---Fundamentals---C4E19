@@ -21,5 +21,5 @@ html_reason = html_content.replace("{{sickness}}", choice(list_reasons))
 msg = Message("Test Message", to = "fakeacc.n2h@gmail.com", html = html_reason)
 
 from datetime import datetime, time
-if datetime.now().hour == 13 and datetime.now().minute == 52:
+if datetime.now().hour == 20:
     gmail.send(msg)
