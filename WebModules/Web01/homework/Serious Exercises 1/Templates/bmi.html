@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BMI</title>
+</head>
+<body>
+    <p style="text-align: center;"><span style="color: #008080;">Your BMI</span></p>
+    {% if weight / (height/100 * height/100) < 16 %}
+    <p>Your BMI is {{weight / (height/100 * height/100)}}. You are severely underweight.</p>
+    {% elif weight / (height/100 * height/100) <= 18.5 %}
+    <p>Your BMI is {{weight / (height/100 * height/100)}}. You are underweight.</p>
+    {% elif weight / (height/100 * height/100) <= 25 %}
+    <p>Your BMI is {{weight / (height/100 * height/100)}}. You are normal.</p>
+    {% elif weight / (height/100 * height/100) <= 30 %}
+    <p>Your BMI is {{weight / (height/100 * height/100)}}. You are overweight.</p>
+    {% elif weight / (height/100 * height/100) >30 %}
+    <p>Your BMI is {{weight / (height/100 * height/100)}}. You are obese.</p>
+    {% endif %}
+</body>
+</html>

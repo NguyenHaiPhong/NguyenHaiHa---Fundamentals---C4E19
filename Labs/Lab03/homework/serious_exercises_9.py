@@ -7,5 +7,5 @@ def get_even_list(l):
     print(new_list)
     return new_list
 
-get_even_list([1, 2, 3, 4, 5, 6, 7, 8, 9])
+get_even_list([-1, 2, 3, 4, 5, 6, 7, 8, 9])
 

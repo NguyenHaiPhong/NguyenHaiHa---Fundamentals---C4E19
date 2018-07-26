@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Profile</title>
+</head>
+<body>
+    <div>
+        {% if username in user %}
+        <p style="text-align: center;"><span style="color: #008080;">Profile</span></p>
+        <ul style="list-style-type: circle;">
+            <li>T&ecirc;n: {{user[username]["name"]}}.</li>
+            <li>Tuổi: {{user[username]["age"]}}.&nbsp;</li>
+            <li>Trường: .</li>
+            <li>C&ocirc;ng việc: .</li>
+            <li>Sở th&iacute;ch: .</li>
+        {% else %}
+            <p>User not found</p>
+        </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
