@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mua dong khong lanh</title>
+</head>
+<body>
+    <h1>Mùa đông không lạnh</h1>
+    <a href="{{url_for("search", gtinh = 0)}}">Bạn là nam?</a>
+    <br>
+    <!-- <a href="http://127.0.0.1:5000/search/1">Bạn là nam?</a><br> -->
+    <a href="{{url_for("search", gtinh = 1)}}">Bạn là nữ?</a>
+    <br>
+    <a href="{{url_for("first_10_male_customers")}}">First 10 male customers, not yet contacted</a>
+</body>
+</html>

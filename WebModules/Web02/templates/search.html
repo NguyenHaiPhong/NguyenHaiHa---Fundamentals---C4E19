@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mua dong khong lanh</title>
+</head>
+<body>
+    <h1>Search</h1>
+    <div>
+    <p style="text-align: center;">Profile</p>
+    {% for nguoi_cho_thue in tat_ca_nguoi_cho_thue %}
+    <ul>
+        {% if nguoi_cho_thue.gtinh == 1 %}
+        <img src="../static/image/image/male-profile.jpg">
+        {% else %}
+        <img src="../static/image/image/female-profile.jpg">
+        {% endif %}
+        <br>
+        <li>T&ecirc;n: {{ nguoi_cho_thue.ten }}</li>
+        <li>Năm sinh:{{ nguoi_cho_thue.nam_sinh }}</li>
+        <li>Giới t&iacute;nh: {{ nguoi_cho_thue.gtinh }}</li>
+        <li>Chều cao: {{ nguoi_cho_thue.chieu_cao }}</li>
+        <li>Số&nbsp;đện thoại: {{ nguoi_cho_thue.so_dt }}</li>
+        <li>Địa chỉ: {{ nguoi_cho_thue.dia_chi }}</li>
+        <li>Trạng th&aacute;i: {{nguoi_cho_thue.trang_thai}} &nbsp;</li>
+    </ul>
+    <hr>
+    {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mua dong khong lanh</title>
+</head>
+<body>
+    <h1 style="text-align: center">Customers</h1>
+    <div>
+    <p style="text-align: center;">Customers's Profile</p>
+    {% for customer in all_customers %}
+    <ul>
+        <img src="../static/image/image/male-profile.jpg">
+        <li>Full name: {{ customer.name }}</li>
+        <li>Gender:&nbsp; {{ customer.gender }}</li>
+        <li>Year of birth:  {{ customer.yob }}</li>
+        <li>Email:&nbsp; {{ customer.email }}</li>
+        <li>Phone number:&nbsp; {{ customer.phone_numb }}</li>
+        <li>Current job:  {{ customer.job }}</li>
+        <li>Company: {{ customer.company }}</li>
+        <li>Contacted:&nbsp; {{ customer.contacted }}</li>
+    </ul>
+    <hr>
+    {% endfor %}
+    </div>
+</body>
+</html>
