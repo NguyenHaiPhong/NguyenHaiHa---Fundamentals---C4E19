@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>ADMIN</h1>
+    <table border="1px">
+        <thead>
+            <th>STT</th>
+            <th>Tên</th>
+            <th>Năm sinh</th>
+            <th>Giới tính</th>
+            <th>Chiều cao</th>
+            <th>Số điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Trạng thái</th>
+            <th></th>
+        </thead>
+        <tbody>
+        {% for model in all_models %}
+        <tr>
+           <td>{{ loop.index }}</td>
+           <td>{{ model.ten }}</td>
+           <td>{{ model.nam_sinh }}</td>
+           <!-- {% if model.gtinh == 1 %}
+           <td>Nam</td>
+           {% else %}
+           <td>Nữ</td>
+           {% endif %} -->
+           <td>
+               {{ "Nam" if model.gtinh == 1 else "Nữ"}}
+           </td>
+           <td>{{ model.chieu_cao }}</td>
+           <td>{{ model.so_dt }}</td>
+           <td>{{ model.dia_chi }}</td>
+           {% if model.tinh_trang == True %}
+           <td>Rảnh</td>
+           {% else %}
+           <td>Bận</td>
+           {% endif %}   
+           <!-- <td>"Rảnh" if model.tinh_trang == True else "Bận" </td> -->
+           <td><a href="">Sửa</a></td>
+           <td><a href="{{ url_for("delete", model_id=model.id) }}">Xoá</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

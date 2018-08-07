@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import *
 pilot_app = Flask(__name__)
 import mlab
 from models.nguoi_cho_thue import nguoi_cho_thue
@@ -48,6 +48,33 @@ def customer():
     all_customers = customers.objects()
     return render_template("customers.html", all_customers = all_customers)
 
+@pilot_app.route("/delete/<model_id>")
+def delete(model_id):
+    have_model = nguoi_cho_thue.objects.with_id(model_id)
+    if have_model is not None: 
+        have_model.delete()
+        return redirect(url_for("admin"))
+    else:
+        return ("Not found.")
+    
+@pilot_app.route("/new_model", methods = ["GET", "POST"])
+def new_model():
+    if request.method == "GET":
+        return render_template("new_model.html")
+    elif request.method == "POST":
+        form = request.form
+        name = form["name"]
+        yob = form["yob"]
+        phone_numb = form["phone_numb"]
+        option = form["gender"]
+        add_model = nguoi_cho_thue(
+            name = name,
+            yob = yob,
+            phone_numb = phone_numb"
+        )
+        add_model.save()
+        return redirect(url_for("admin"))
+
 @pilot_app.route("/search/<gtinh>")
 def search(gtinh):
     tat_ca_nguoi_cho_thue = nguoi_cho_thue.objects(gtinh = gtinh, nam_sinh__lte = 2018, dia_chi__contains = "Hà Nội")
@@ -58,7 +85,14 @@ def first_10_male_customers():
     all_customers = customers.objects(gender = 1, contacted = 0)[:10]
     return render_template("first_10_male_customers.html", all_customers = all_customers)
 
+@pilot_app.route("/admin")
+def admin():
+    all_models = nguoi_cho_thue.objects()
+    return render_template("admin.html", all_models = all_models)
+
 if __name__ == '__main__':
   pilot_app.run(debug=True)
+
+
 
  
