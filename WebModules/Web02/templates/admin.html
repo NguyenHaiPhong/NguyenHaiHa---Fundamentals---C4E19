@@ -17,6 +17,9 @@
             <th>Chiều cao</th>
             <th>Số điện thoại</th>
             <th>Địa chỉ</th>
+            <th>Ảnh đại diện</th>
+            <th>Tính cách</th>
+            <th>Số đo các vòng</th>
             <th>Trạng thái</th>
             <th></th>
         </thead>
@@ -24,30 +27,35 @@
         {% for model in all_models %}
         <tr>
            <td>{{ loop.index }}</td>
-           <td>{{ model.ten }}</td>
-           <td>{{ model.nam_sinh }}</td>
+           <td>{{ model.name }}</td>
+           <td>{{ model.yob }}</td>
            <!-- {% if model.gtinh == 1 %}
            <td>Nam</td>
            {% else %}
            <td>Nữ</td>
            {% endif %} -->
            <td>
-               {{ "Nam" if model.gtinh == 1 else "Nữ"}}
+               {{ "Nam" if model.gender == 1 else "Nữ" }}
            </td>
-           <td>{{ model.chieu_cao }}</td>
-           <td>{{ model.so_dt }}</td>
-           <td>{{ model.dia_chi }}</td>
-           {% if model.tinh_trang == True %}
+           <td>{{ model.height }}</td>
+           <td>{{ model.phone_numb }}</td>
+           <td>{{ model.address }}</td>
+           <td><img src="{{ model.avatar }}" width="300px" height="180px"></td>
+           <td>{{ model.description }}</td>
+           <td>{{ model.measurements }}</td>
+           {% if model.status == True %}
            <td>Rảnh</td>
            {% else %}
            <td>Bận</td>
            {% endif %}   
            <!-- <td>"Rảnh" if model.tinh_trang == True else "Bận" </td> -->
-           <td><a href="">Sửa</a></td>
-           <td><a href="{{ url_for("delete", model_id=model.id) }}">Xoá</a></td>
+           <td><a href="{{ url_for("update_model", model_id = model.id) }}">Chỉnh sửa thông tin</a></td>
+           <td><a href="{{ url_for("delete", model_id = model.id) }}">Xoá</a></td>
         </tr>
         {% endfor %}
         </tbody>
     </table>
+    <br>
+    <a href="{{ url_for("admin_log_out") }}">Đăng xuất</a>
 </body>
 </html>

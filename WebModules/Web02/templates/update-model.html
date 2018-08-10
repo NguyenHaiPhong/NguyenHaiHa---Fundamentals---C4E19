@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mùa đông không lạnh</title>
+</head>
+<body>
+    <h1>Chỉnh sửa thông tin</h1>
+    <form method="POST">
+        <label>Tên</label>
+        <br>
+        <input type="text" name="name" value="{{ model.name }}">
+        <br>
+        <label>Năm sinh</label>
+        <br>
+        <input type="text" name="yob" value="{{ model.yob }}">
+        <br>
+        <label>Giới tính</label>
+        <br>
+        <input type="text" name="gender" value="{{ "Nam" if model.gender == 1 else "Nữ"  }}">
+        <br>
+        <label>Chiều cao</label>
+        <br>
+        <input type="text" name="height" value="{{ model.height }}">
+        <br>
+        <label>Số điện thoại</label>
+        <br>
+        <input type="text" name="phone_numb" value="{{ model.phone_numb }}">
+        <br>
+        <label>Địa chỉ</label>
+        <br>
+        <input type="text" name="address" value="{{ model.address }}">
+        <br>
+        <label>Ảnh đại diện</label>
+        <br>
+        <input type="text" name="avatar" value="{{ model.avatar }}">
+        <br>
+        <label>Tính cách</label>
+        <br>
+        <input type="text" name="description" value="{{ model.description }}">
+        <br>
+        <label>Số đo các vòng</label>
+        <br>
+        <input type="text" name="measurements" value="{{ model.measurements }}">
+        <br>
+        <label>Trạng thái   </label>
+        <br>
+        <input type="text" name="status" value="{{ "Rảnh" if model.gender == 1 else "Bận" }}">
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>

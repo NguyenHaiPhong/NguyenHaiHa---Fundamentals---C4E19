@@ -29,5 +29,12 @@
 #             loop = False
 #         else:
 #             print("We don't have that kind of action. Please re-enter: ")
-a = input()
-print(a)
+# a = input()
+# print(a)
+from random import choice, sample
+from demo import a_list
+for i in a_list:
+    print(i)
+random_list = []
+random_list = sample(a_list, 2)
+print(random_list)

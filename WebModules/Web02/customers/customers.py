@@ -1,6 +1,6 @@
 from mongoengine import *
 
-class customers(Document):
+class Customers(Document):
     name = StringField()
     gender = IntField()
     yob = IntField()

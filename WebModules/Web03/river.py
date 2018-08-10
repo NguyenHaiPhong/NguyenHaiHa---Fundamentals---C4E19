@@ -1,6 +1,6 @@
 from mongoengine import *
 
-class river(Document):
+class River(Document):
     name = StringField()
     continent = StringField()
     length = IntField()

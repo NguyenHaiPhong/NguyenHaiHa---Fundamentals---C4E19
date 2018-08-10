@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mùa đông không lạnh</title>
+</head>
+<body>
+    <h1>All Models</h1>
+    {% for model in all_models %}
+    <img src="../static/image/image/Blank-Sign-in-to-network-300x200.png">
+    <p>Tên: {{ model.name }}</p>
+    <p>Năm sinh: {{ model.yob }}</p>
+    <p>Chiều cao: {{ model.height }}</p>
+    <p>Trạng thái: {{ "Rảnh" if model.status == 0 else "Bận" }}</p>
+    {% if model.status == 0 %}
+    <a href="{{ url_for("detail", model_id = model.id) }}">Tìm hiểu thêm</a>
+    <br>
+    {% else %}
+    <p>N/A</p>
+    {% endif %}
+    <hr>
+    {% endfor %}
+    <a href="{{ url_for("user_log_out") }}">Đăng xuất</a>
+</body>
+</html>
