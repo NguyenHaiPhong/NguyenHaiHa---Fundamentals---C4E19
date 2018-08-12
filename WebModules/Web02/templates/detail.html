@@ -20,6 +20,6 @@
         <li>T&iacute;nh c&aacute;ch: {{ model.description }}</li>
         <li>Trạng th&aacute;i: {{ "Rảnh" if model.status == 1 else "Bận" }}</li>
         </ul>
-    <a href="{{ url_for("order_service", model_id = model.id, user_id = session["user_logged_in"]) }}">Yêu cầu dịch vụ</a>    
+    <a href="{{ url_for("order_service", model_id = model.id, user_id = session["user_logged_in_id"]) }}">Yêu cầu dịch vụ</a>    
 </body>
 </html>

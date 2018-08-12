@@ -1,12 +1,30 @@
-from models.models import Models
+from classes.classes import *
 import mlab
-from mongoengine import *
-from customers.customers import Customers
 mlab.connect()
 
-all_customers = Customers.objects(gender = 1)
-b = all_customers[0]
-print(b.to_mongo())
+# all_customers = Customers.objects(gender = 1)
+# a = len(all_customers)
+# if a != 0:
+#     print("haha")
+# elif a == 0:
+#     print("huhu")
+all_orders = Orders.objects(is_accecpted = False)
+        # for order in all_orders:
+print(all_orders[0].to_mongo())
+a = all_orders[0].model_id
+# print(a)
+# print(type(a))
+# b = a["name"]
+# print(b)
+# print(type(b))
+# model_name = all_orders[0]["name"]
+# user = Users.objects.with_id(str(user_id))
+# print(user[0].to_mongo())
+
+# print(a)
+# print(type(a))
+# b = all_customers[0]
+# print(b.to_mongo())
 # a = all_customers[0].id
 # print(a)
 # print(type(a))
