@@ -44,7 +44,7 @@ def admin():
         return render_template("admin.html", all_models = all_models)
     else:   
         return redirect(url_for("admin_log_in"))
-
+#Orders page
 @pilot_app.route("/orders-page")
 def show_all_orders():
     if "admin_logged_in" in session:
@@ -53,6 +53,7 @@ def show_all_orders():
     else:   
         return redirect(url_for("admin_log_in"))
 
+#Accpect order
 @pilot_app.route("/accept_orders/<order_id>/<model_id>/<user_id>")
 def accept_orders(order_id, model_id, user_id):
     if "admin_logged_in" in session:
@@ -205,7 +206,7 @@ def user_log_in():
         password = form["password"]
         user = Users.objects(log_in__exact = name, 
         password__exact = password, is_admin = False)
-        if len(list_user) != 0:
+        if len(user) != 0:
             user_id = user[0].id
             session["user_logged_in"] = True
             session["user_logged_in_id"] = str(user_id)
@@ -223,35 +224,30 @@ def detail(model_id):
         return redirect(url_for("user_log_in"))
 
 #Search models information
-@pilot_app.route("/search", methods = ["GET", "POST"])
-def search():
-    if method.request == "GET":
-        if "user_logged_in" in session:
-            return render_template("search.html")
-        else:
-            return redirect(url_for("user_log_in"))
-    elif method.request == "POST":
-        form = request.form
-        name = form["name"]
-        name = form["name"]
-        yob = form["yob"]
-        gender_value = form["gender"]
-        if gender_value == "Nam":
-            gender_to_add = 1
-        elif gender_value == "Nữ":
-            gender_to_add = 0 
-        height = form["height"]
-        phone_numb = form["phone_numb"]
-        address = form["address"]
-        avatar = form["avatar"]
-        description = form["description"]
-        measurements = form["measurements"]
-        status_value = form["status"]
-        if status_value == "Rảnh":
-            status_to_add = 0
-        elif status_value == "Bận":
-            status_to_add = 1
-        return render_template("search.html", all_models = all_models)
+# @pilot_app.route("/search", methods = ["GET", "POST"])
+# def search_model():
+#     if method.request == "GET":
+#         if "user_logged_in" in session:
+#             return render_template("search_model.html")
+#         else:
+#             return redirect(url_for("user_log_in"))
+#     elif method.request == "POST":
+#         form = request.form
+#         name = form["name"]
+#         yob = form["yob"]
+#         gender_value = form["gender"]
+#         if gender_value == "Nam":
+#             gender_to_find = 1
+#         elif gender_value == "Nữ":
+#             gender_to_find = 0 
+#         height = form["height"]
+#         phone_numb = form["phone_numb"]
+#         address = form["address"]
+#         description = form["description"]
+#         measurements = form["measurements"]
+#         model = Models.objects(name = name, yob = yob, gender = gender_to_find, 
+#         height = height, phone_numb = phone_numb, address, description = description, measurements = measurements)
+#         return render_template("search_show.html", model = model)
 
 # User log out
 @pilot_app.route("/user-log-out")

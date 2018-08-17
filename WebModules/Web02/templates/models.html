@@ -5,23 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mùa đông không lạnh</title>
+    {% include "meta-data.html" %}
 </head>
 <body>
-    <h1>All Models</h1>
-    {% for model in all_models %}
-    <img src="../static/image/image/Blank-Sign-in-to-network-300x200.png">
-    <p>Tên: {{ model.name }}</p>
-    <p>Năm sinh: {{ model.yob }}</p>
-    <p>Chiều cao: {{ model.height }}</p>
-    <p>Trạng thái: {{ "Rảnh" if model.status == 1 else "Bận" }}</p>
-    {% if model.status == 1 %}
-    <a href="{{ url_for("detail", model_id = model.id) }}">Tìm hiểu thêm</a>
-    <br>
+    {% if session["user_logged_in"] == True %}
+    {% include "homepage/user-logged-in-nav.html" %}
     {% else %}
-    <p>N/A</p>
+    {% include "homepage/nav.html" %}
     {% endif %}
-    <hr>
-    {% endfor %}
-    <a href="{{ url_for("user_log_out") }}">Đăng xuất</a>
+    <h1 class="text-center">All Models</h1>
+    {% for model in all_models %}
+    <div class="container bootstrap snippet">
+        <div class="panel-body inf-content">
+            <div class="row">
+                <div class="col-md-4">
+                    <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="{{ model.avatar }}" 
+                    data-original-title="Usuario"> 
+                </div>
+                <div class="col-md-6">
+                    <strong>Thông tin</strong><br>
+                    <div class="table-responsive">
+                    <table class="table table-condensed table-responsive table-user-information">
+                        <tbody>
+                            <tr>    
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-user  text-primary"></span>    
+                                        Tên                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ model.name }}     
+                                </td>
+                            </tr>
+                            <tr>        
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-cloud text-primary"></span>  
+                                        Năm sinh                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ model.yob }}  
+                                </td>
+                            </tr>
+        
+                            <tr>        
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-bookmark text-primary"></span> 
+                                        Chiều cao                                                
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ model.height }} 
+                                </td>
+                            </tr>
+        
+        
+                            <tr>        
+                                <td>
+                                    <strong>
+                                        <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                        Trạng thái                                             
+                                    </strong>
+                                </td>
+                                <td class="text-primary">
+                                    {{ "Rảnh" if model.status == 1 else "Bận" }}
+                                </td>
+                            </tr>
+                            <tr>
+                                {% if model.status == 1 %}
+                                <td>
+                                    <strong>
+                                        <a href="{{ url_for("detail", model_id = model.id) }}">Tìm hiểu thêm</a>
+                                    </strong>
+                                </td>
+                                {% else %}
+                                <td>
+                                    <strong>
+                                        N/A
+                                    </strong>
+                                </td>
+                                {% endif %}
+                            </tr>                              
+                        </tbody>
+                    </table>
+                    </div>
+                    <br>                   
+                </div>
+            </div>
+        </div>
+        </div>
+        <hr>
+        {% endfor %}
+        <a href="{{ url_for("user_log_out") }}">Đăng xuất</a>                                           
 </body>
 </html>
