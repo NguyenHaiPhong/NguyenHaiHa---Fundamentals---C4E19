@@ -1,5 +1,0 @@
-print("Enter a number:")
-number_ = int(input())
-a_range = range(number_ + 1)
-sum = sum(a_range)
-print("Sum = ", sum)
