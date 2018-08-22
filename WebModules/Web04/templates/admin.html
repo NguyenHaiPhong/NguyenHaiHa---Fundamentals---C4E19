@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CMS App</title>
+</head>
+<body>
+    <h1>Admin</h1>
+    <a href="{{ url_for("log_out") }}">Đăng xuất</a>
+    <form method="POST">
+        <label>Link:</label>
+        <input type="text" name="link">
+        <input type="submit">
+    </form>
+    <hr>
+    <p>All Videos</p>
+        <table border="2px">
+            <thead>
+                <th>STT</th>
+                <th>Title</th>
+                <th>Link</th>
+                <th>Thumbnail</th>
+                <th>Views</th>
+            </thead>
+            <tbody>
+                {% for video in all_videos %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ video.title }}</td>
+                    <td><a href="{{ video.link }}" target="blank">Click to view</a></td>
+                    <td>
+                        <img src="{{ video.thumbnail }}" alt="thumbnail" height="150px" width="200px">
+                    </td>
+                    <td>{{ video.views }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+</body>
+</html>

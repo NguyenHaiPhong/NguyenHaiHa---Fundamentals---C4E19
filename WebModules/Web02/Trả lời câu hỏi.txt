@@ -1,0 +1,22 @@
+***************************
+1. Excersice 1
+- There are no duplicate ids in the records.
+- Because the _id field is unique.
+- The _id is the primary key on elements in a collection.
+- ObjectIds are 12 bytes long, made up of several 2-4 byte chains. Each chain represents and designates a specific aspect of the document's identity:
+	- a 4-byte value representing the seconds since the Unix epoch.
+	- a 3-byte machine identifier.
+	- a 2-byte process id.
+	- a 3-byte counter, starting with a random value.
+***************************
+2. Excercise 2
+- find a document based on id:
+	- By using db.collection.find().
+	- By using Docs.objects.get(id='...')
+***************************
+3. Excercise 3
+- Examle:
+	- lunch = Food.objects.first()
+	- lunch.delete()
+or: 
+	- Food.objects(type="snacks").delete()

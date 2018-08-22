@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mùa đông không lạnh</title>
+    {% include "meta-data.html" %}
+</head>
+<body>
+    {% if session["user_logged_in"] == True %}
+    {% include "homepage/user-logged-in-nav.html" %}
+    {% else %}
+    {% include "homepage/nav.html" %}
+    {% endif %}
+    <h1 class="text-center">Chi tiết</h1>
+    <div class="container bootstrap snippet">
+            <div class="panel-body inf-content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img alt="" style="width:600px;" title="" class="img-circle img-thumbnail isTooltip" src="{{ model.avatar }}" 
+                        data-original-title="Usuario"> 
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Thông tin</strong><br>
+                        <div class="table-responsive">
+                        <table class="table table-condensed table-responsive table-user-information">
+                            <tbody>
+                                <tr>    
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-user text-primary"></span>    
+                                            Tên                                                
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ model.name }}     
+                                    </td>
+                                </tr>
+                                <tr>        
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-cloud text-primary"></span>  
+                                            Năm sinh                                                
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ model.yob }}  
+                                    </td>
+                                </tr>
+            
+                                <tr>        
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-bookmark text-primary"></span> 
+                                            Giới tính                                                
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ "Nam" if model.gender == 1 else "Nữ" }} 
+                                    </td>
+                                </tr>         
+                                <tr>        
+                                    <td>
+                                        <strong>
+                                            <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                            Chiều cao                                             
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ model.height }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>
+                                        <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                            Số điện thoại
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ model.phone_numb }}
+                                    </td>
+                                </tr>             
+                                <tr>
+                                    <td>
+                                        <strong>
+                                        <span class="glyphicon glyphicon-eye-open text-primary"></span> 
+                                            Địa chỉ
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ model.address }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="glyphicon glyphicon-eye-open text-primary">
+                                        <strong>
+                                            Tính cách
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ model.description }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="glyphicon glyphicon-eye-open text-primary">
+                                        <strong>
+                                            Số đo các vòng
+                                        </strong>
+                                    </td>
+                                    <td class="text-primary">
+                                        {{ model.measurements }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="glyphicon glyphicon-eye-open text-primary">
+                                        Tình trạng
+                                    </td>
+                    
+                                    <td class="text-primary">
+                                        {{ "Rảnh" if model.status == 1 else "Bận" }}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <br>                   
+                    </div>
+                </div>
+            </div>
+    </div>
+    <br>
+    <div class="container">
+        <button class="btn btn-text-primary">
+                <a href="{{ url_for("order_service", model_id = model.id, user_id = session["user_logged_in_id"]) }}">Yêu cầu dịch vụ</a>  
+        </button>
+    </div>    
+</body>
+</html>
